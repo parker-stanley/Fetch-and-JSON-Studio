@@ -14,7 +14,6 @@ window.addEventListener("load", function(){
                 </div>
             `
             let astronauts = '';
-            let astronautCount = 0
             for (astronaut of json) {
                 if (astronaut.active == true){
                     astronauts += `
