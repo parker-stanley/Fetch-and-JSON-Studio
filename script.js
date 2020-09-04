@@ -34,8 +34,3 @@ window.addEventListener("load", function(){
 });
 
 // const container = document.getElementById('container') would also work
-
-
-
-
-//attempt with a return statement
