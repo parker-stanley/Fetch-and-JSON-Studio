@@ -15,33 +15,18 @@ window.addEventListener("load", function(){
             `
             let astronauts = '';
             for (astronaut of json) {
-                if (astronaut.active == true){
-                    astronauts += `
+                astronauts += `
                     <div class='astronaut'>
                         <div class="bio">
                             <h3>${astronaut.firstName}</h3>
                             <ul>
                                 <li>Hours in space: ${astronaut.hoursInSpace}</li>
-                                <li class='active'>Active: ${astronaut.active}</li>
+                                ${(astronaut.active===true) ? `<li class='active'>Active: ${astronaut.active}</li>`:`<li>Active: ${astronaut.active}</li>`}
                                 <li>Skills: ${astronaut.skills.join(', ')}</li>
                             </ul>
                         </div>
                         <img class="avatar" src="${astronaut.picture}"/>
                     </div>`
-                } else {
-                    astronauts += `
-                    <div class='astronaut'>
-                        <div class="bio">
-                            <h3>${astronaut.firstName}</h3>
-                            <ul>
-                                <li>Hours in space: ${astronaut.hoursInSpace}</li>
-                                <li>Active: ${astronaut.active}</li>
-                                <li>Skills: ${astronaut.skills.join(', ')}</li>
-                            </ul>
-                        </div>
-                        <img class="avatar" src="${astronaut.picture}"/>
-                    </div>`
-                }
             }
             container.innerHTML += astronauts;
         });
