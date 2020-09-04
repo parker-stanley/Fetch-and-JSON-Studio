@@ -8,6 +8,11 @@ window.addEventListener("load", function(){
                 return b.hoursInSpace - a.hoursInSpace;
             })
             const container = document.querySelector('#container');
+            container.innerHTML = `
+                <div>
+                    <h2>Crew count: ${json.length}</h2>
+                </div>
+            `
             let astronauts = '';
             let astronautCount = 0
             for (astronaut of json) {
@@ -24,7 +29,6 @@ window.addEventListener("load", function(){
                         </div>
                         <img class="avatar" src="${astronaut.picture}"/>
                     </div>`
-                    astronautCount ++
                 } else {
                     astronauts += `
                     <div class='astronaut'>
@@ -38,12 +42,9 @@ window.addEventListener("load", function(){
                         </div>
                         <img class="avatar" src="${astronaut.picture}"/>
                     </div>`
-                    astronautCount ++
                 }
             }
-            container.innerHTML = astronauts;
-            const heading = document.querySelector('h1');
-            heading.innerHTML = `Astronauts (${astronautCount})`;
+            container.innerHTML += astronauts;
         });
     });
 });
